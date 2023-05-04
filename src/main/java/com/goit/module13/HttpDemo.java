@@ -12,7 +12,8 @@ public class HttpDemo {
         HttpDemo httpDemo = new HttpDemo();
         //System.out.println(typicodeClient.createUser(httpDemo.createNewUser()));
         //System.out.println(typicodeClient.updateUser(httpDemo.createUserWithId()));
-        System.out.println(typicodeClient.deleteUser(1L));
+        //System.out.println(typicodeClient.deleteUser(1L));
+        new UserService().printOpenTasks(1L);
     }
 
     private TypicodeUser createUserWithId() {
@@ -35,7 +36,6 @@ public class HttpDemo {
     private TypicodeUserAddress createNewUserAddress() {
         TypicodeUserAddress result = new TypicodeUserAddress();
         result.setGeo(createNewUserAddressGeo());
-
         return result;
     }
 
@@ -49,6 +49,11 @@ public class HttpDemo {
 
     private TypicodeUserCompany createNewUserCompnany() {
         TypicodeUserCompany result = new TypicodeUserCompany();
+        return result;
+    }
+
+    private TypicodeUserTodo createUserTodos () {
+        TypicodeUserTodo result =  new TypicodeUserTodo();
         return result;
     }
 

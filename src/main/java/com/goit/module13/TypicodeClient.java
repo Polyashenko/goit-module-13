@@ -22,7 +22,12 @@ public class TypicodeClient {
         });
     }
 
-    public TypicodeUser findUserById(Integer id) throws IOException {
+    public TypicodeUser findUserById(Long id) throws IOException {
+        return performGet(USERS_URL + "/" + id, new TypeReference<>() {
+        });
+    }
+
+    public TypicodeUser findByComplited(Long id) throws IOException {
         return performGet(USERS_URL + "/" + id, new TypeReference<>() {
         });
     }
@@ -31,6 +36,13 @@ public class TypicodeClient {
         return performGet(USERS_URL + "?username=" + userName, new TypeReference<>() {
         });
     }
+
+
+    public List<TypicodeUserTodo> findUserTodоsByUserId(Long userId) throws IOException {
+        return performGet(USERS_URL + "/" + userId + "/todos?completed=false", new TypeReference<>() {
+        });
+    }
+
 
 
     public TypicodeUser createUser(TypicodeUser user) throws IOException {

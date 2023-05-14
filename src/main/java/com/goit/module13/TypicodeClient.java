@@ -15,7 +15,10 @@ import java.util.List;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 
 public class TypicodeClient {
+
     private static final String USERS_URL = "https://jsonplaceholder.typicode.com/users";
+
+    private static final String POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
     public List<TypicodeUser> findUsers() throws IOException {
         return performGet(USERS_URL, new TypeReference<>() {
@@ -42,8 +45,15 @@ public class TypicodeClient {
         return performGet(USERS_URL + "/" + userId + "/todos?completed=false", new TypeReference<>() {
         });
     }
+    public List<TopycodeUserPost> findUserPostsByUserId(Long userId) throws IOException {
+        return performGet(USERS_URL + "/" + userId + "/posts", new TypeReference<>() {
+        });
+    }
 
-
+    public List<TopycodeUserPostComments> findUserPostsByUserIdComments(Long postId) throws IOException {
+        return performGet(POSTS_URL + "/" + postId + "/comments", new TypeReference<>() {
+        });
+    }
 
     public TypicodeUser createUser(TypicodeUser user) throws IOException {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {

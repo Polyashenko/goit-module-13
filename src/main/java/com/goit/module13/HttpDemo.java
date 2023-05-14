@@ -13,7 +13,9 @@ public class HttpDemo {
         //System.out.println(typicodeClient.createUser(httpDemo.createNewUser()));
         //System.out.println(typicodeClient.updateUser(httpDemo.createUserWithId()));
         //System.out.println(typicodeClient.deleteUser(1L));
-        new UserService().printOpenTasks(1L);
+//        new UserService().printOpenTasks(1L);
+        //new UserService().writeFileLastComments(1L);
+        new UserService().writeFileLastComments(1L);
     }
 
     private TypicodeUser createUserWithId() {
@@ -56,5 +58,7 @@ public class HttpDemo {
         TypicodeUserTodo result =  new TypicodeUserTodo();
         return result;
     }
+
+
 
 }
